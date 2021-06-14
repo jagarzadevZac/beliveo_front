@@ -4,10 +4,18 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { ApolloProvider } from '@apollo/client';
+import client from './apollo/client';
+
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <ApolloProvider client={client}>
+     <BrowserRouter>
+        <Switch>
+           <Route path="/" component={App} />
+        </Switch>
+     </BrowserRouter>
+  </ApolloProvider>,
   document.getElementById('root')
 );
 
